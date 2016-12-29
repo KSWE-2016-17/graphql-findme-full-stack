@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+    httpd:
+        build: httpd
+        depends_on:
+            - webapp
+        ports:
+            - "8080:80"
+        volumes_from:
+            - webapp
+    webapp:
+        build: webapp
+        depends_on:
+            - graphql
+    graphql:
+        build: graphql
+        depends_on:
+            - mongodb
+        ports:
+            - "8888:8080"
+        links:
+            - mongodb
+        environment:
+            - DB_HOST=mongodb
+    mongodb:
+        build: mongodb
