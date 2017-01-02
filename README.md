@@ -26,20 +26,20 @@ doesn't matter in any case.
 ## Using Docker Compose
 
 As there are `Dockerfile`s to build all needed Docker images,
-you may build the images manually.
-Creating the Docker containers gets more complexity because the containers do
-depend on each other and need to by run in the correct order and also to be
+you may be able build the images manually.
+Creating the Docker containers gets more complexity because the containers
+depend on each other and need to be run in the correct order and also to be
 configured correctly
 (networking, links, volumes, etc.)
 as some containers need to communicated with each other.
 
 A very elegant way to build the images and create and run the containers is
-to use Docker Compose tool.
-This repository contains a configured `docker-compose.yml` file,
+to use the Docker Compose tool.
+Besides the `Dockerfile`s this repository also contains a configured
+`docker-compose.yml` file,
 so you don't need to do any configuration and stuff.
-The only thing,
-you have to do,
-is to run some simple Docker Compose commands being described afterwards.
+The only thing you have to do is to run some simple Docker Compose commands
+being described afterwards.
 
 ### Building/Creating/Running Docker images/containers (shorthand)
 
@@ -50,12 +50,11 @@ simple command:
 docker-compose up -d
 ```
 
-This builds Docker images,
-if they don't exist already.
-Then new Docker containers will be created,
-if they don't exist already or the images differ from the images,
+This builds Docker images if they don't exist already.
+Then new Docker containers will be created if they don't exist already or the
+images differ from the images,
 the existing containers were build on.
-After container creation the containers will be started in correct order,
+After container creation the containers will be started in the correct order,
 as some containers depend on other containers.
 
 To rebuild the images and recreate the containers you can use the following
@@ -66,15 +65,14 @@ docker-compose up -d --build --force-recreate
 ```
 
 This will rebuild the images on configuration changes and also recreate the
-containers,
-if necessary,
+containers if necessary,
 but there are some exceptions which will not be explained here.
 The easier way to handle this case is to use the commands described afterwards.
 There also exist some opposite commands like `--no-build`,
 which prevent some operations like preventing building updated images and also
 recreating containers if the configuration got updated,
 but you want to use and run the already existing images and containers.
-But this goes too deep into details to being described here.
+But this goes too deep into detail to being described here.
 
 ### Building Docker images
 
@@ -91,19 +89,19 @@ docker-compose build --no-cache --pull
 
 The `--no-cache` option tells the build process to ignore existing caches.
 This may be needed in some situations like if the previous build installed some
-application which exists in a updated version sinse the last image creation.
+application which exists in an updated version since the last image creation.
 If you leave this option away,
 the build process recycles caches if possible,
 which may save lot of time.
 
-The `--pull` option pulls the latest version of the base image,
-if there is an updated version of it.
-This option basicly is optional and can be left away,
+The `--pull` option pulls the latest version of the base image if there is an
+updated version of it.
+This option basically is optional and can be left away,
 but may be also practical.
 
 ### Creating Docker containers
 
-If you want to force re-create existing containers,
+If you want to force recreate existing containers,
 e.g. to reset the database,
 you can run the following command:
 
@@ -124,7 +122,7 @@ docker-compose start
 
 Well,
 if you are familiar with Docker and want to use Docker itself,
-nobody will hold you back from doing this.
+nobody will hold you back from doing so.
 To get all information you may need to create and run the images and also
 containers,
 you may look into the `Dockerfile`s and also into the `docker-compose.yml`
