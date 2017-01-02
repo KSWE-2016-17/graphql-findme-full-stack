@@ -6,8 +6,8 @@ environment to simply build and run a stage environment.
 The resulting environment contains all project related components and micro
 services
 ([MongoDB database](https://github.com/kswe-2016-17/graphql-findme-mongodb),
-([GraphQL service](https://github.com/kswe-2016-17/graphql-findme-graphql-service),
-([web frontend](https://github.com/kswe-2016-17/graphql-findme-webapp)),
+[GraphQL service](https://github.com/kswe-2016-17/graphql-findme-graphql-service),
+[web frontend](https://github.com/kswe-2016-17/graphql-findme-webapp)),
 which are also correctly configured by needed configuration files and also
 needed system environments including needed software being installed like
 [NodeJS and npm](https://nodejs.org)
