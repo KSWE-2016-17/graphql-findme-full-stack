@@ -74,6 +74,27 @@ recreating containers if the configuration got updated,
 but you want to use and run the already existing images and containers.
 But this goes too deep into detail to being described here.
 
+### Stopping/Killing/Destroying Docker containers (shorthand)
+
+You can stop/kill and destroy the service containers by executing the following
+command:
+
+```bash
+docker-compose down -v
+```
+
+This will stop/kill running containers if necessary and then destroy them and
+also destroy the networks which were created for the project.
+The `-v` option tells the `down` command to delete the volumes which were
+created/used implicitly (no explicit volume definitions/options) by the
+containers.
+Otherwise those volumes would stay on the file system and messing it up.
+Explicitly defined/created volumes will stay anyway,
+so to clean up them is up to you.
+That said,
+keep your system always clean by using the `-v` option or the `--volumes` long
+option when removing containers.
+
 ### Building Docker images
 
 If you want to build the Docker images explicitely or to force build updated
